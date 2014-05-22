@@ -17,7 +17,7 @@ type Instance struct {
 	Modstring string `json:"modstring"`
 	Betamod   string `json:"betamod"`
 	Host      string `json:"host"`
-	Port      string `json:"port"`
+	Port      int    `json:"port"`
 	Password  string `json:"password"`
 }
 
