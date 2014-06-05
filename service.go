@@ -46,12 +46,14 @@ type MantisPrivInstance struct {
 type MantisService struct {
 	Host string
 	Key  string
+	Name string
 }
 
-func NewMantisService(host string, key string) *MantisService {
+func NewMantisService(host string, key string, name string) *MantisService {
 	return &MantisService{
 		Host: host,
 		Key:  key,
+		Name: name,
 	}
 }
 
@@ -85,7 +87,7 @@ func (s *MantisService) Overlays() []*Overlay {
 	}
 
 	instOverlay := &Overlay{
-		Name: "Internal Instances from " + s.Host,
+		Name: "Internal Instances of " + s.Name,
 	}
 	for _, inst := range privInstanceList.Instances {
 		overlayInst := &Instance{
@@ -101,7 +103,7 @@ func (s *MantisService) Overlays() []*Overlay {
 	}
 
 	extInstOverlay := &Overlay{
-		Name: "External Instances from " + s.Host,
+		Name: "External Instances of " + s.Name,
 	}
 	for _, inst := range privInstanceList.ExtInstances {
 		overlayInst := &Instance{

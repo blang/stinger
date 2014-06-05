@@ -50,7 +50,7 @@ func main() {
 func ProviderProxyFromConfig(conf *Config) Provider {
 	services := make([]Provider, 0, len(conf.MantisServices))
 	for _, conf := range conf.MantisServices {
-		service := NewMantisService(conf.Host, conf.Key)
+		service := NewMantisService(conf.Host, conf.Key, conf.Name)
 		services = append(services, service)
 	}
 	return NewProviderProxy(services)

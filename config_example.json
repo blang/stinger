@@ -2,6 +2,7 @@
   "mantis": [
     {
       "host": "127.0.0.1:9000",
+      "name": "Server1",
       "key": "mysecret"
     }
   ]

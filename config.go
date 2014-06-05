@@ -11,6 +11,7 @@ type Config struct {
 
 type MantisConfig struct {
 	Host string `json:"host"`
+	Name string `json:"name"`
 	Key  string `json:"key"`
 }
 
