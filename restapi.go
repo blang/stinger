@@ -35,7 +35,12 @@ func (api *RestAPI) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (api *RestAPI) registerEndPoints() {
+	api.router.HandleFunc("/ping", api.handlePing)
 	api.router.HandleFunc("/overlay", api.handleGetOverlays)
+}
+
+func (api *RestAPI) handlePing(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
 }
 
 func (api *RestAPI) handleGetOverlays(w http.ResponseWriter, r *http.Request) {
